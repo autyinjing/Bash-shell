@@ -1,0 +1,24 @@
+/home/honey/.bashrc
+find: `/home/honey/.Trash-1000': 权限不够
+find: `/home/honey/.wine/drive_c/users': 权限不够
+find: `/home/honey/.wine/drive_c/windows/syswow64/wbem': 权限不够
+find: `/home/honey/.wine/drive_c/windows/syswow64/drivers': 权限不够
+find: `/home/honey/.wine/drive_c/windows/syswow64/gecko/1.4/wine_gecko/components': 权限不够
+find: `/home/honey/.wine/drive_c/windows/syswow64/gecko/1.4/wine_gecko/dictionaries': 权限不够
+find: `/home/honey/.wine/drive_c/windows/system': 权限不够
+find: `/home/honey/.wine/drive_c/windows/Fonts': 权限不够
+find: `/home/honey/.wine/drive_c/windows/temp': 权限不够
+find: `/home/honey/.wine/drive_c/windows/Installer': 权限不够
+find: `/home/honey/.wine/drive_c/windows/command': 权限不够
+find: `/home/honey/.wine/drive_c/windows/logs': 权限不够
+find: `/home/honey/.wine/drive_c/windows/help': 权限不够
+find: `/home/honey/.wine/drive_c/windows/Microsoft.NET': 权限不够
+find: `/home/honey/.wine/drive_c/windows/winsxs': 权限不够
+find: `/home/honey/.wine/drive_c/windows/inf': 权限不够
+find: `/home/honey/.wine/drive_c/Program Files (x86)': 权限不够
+find: `/home/honey/.wine/drive_c/Program Files': 权限不够
+find: `/home/honey/.shotwell': 权限不够
+find: `/home/honey/.speech-dispatcher': 权限不够
+find: `/home/honey/.compiz-1': 权限不够
+find: `/home/honey/.compiz': 权限不够
+/home/honey/文件备份/.bashrc

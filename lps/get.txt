@@ -1,0 +1,139 @@
+
+shell语法总结
+
+
+  1、引号：引号内的内容作为一个字符串，双引号支持变量扩展，单引号则不支持；
+
+  2、环境变量：
+        $HOME - 当前用户家目录   
+        $PATH - 搜索命令的目录列表      
+        $PS1 - 命令提示符       
+        $PS2 - 二级提示符       
+        $IFS - 输入域分隔符
+        $0 - shell脚本名字
+        $# - 参数个数
+        $$ - 脚本的进程号
+
+  3、参数变量：$1, $2, $3, ...          $*      $@(自带分隔符)
+
+  4、条件：test 或 []   条件类型：字符串比较、算数比较、文件相关测试
+        
+                字符串比较
+        str1 = str2     #相等判断
+        str1 != str2    #不等判断
+        -n str          #非空判断
+        -z str          #空串判断
+
+                算数比较
+        exp1 -eq exp2   #相等判断
+        exp1 -ne exp2   #不等判断
+        exp1 -gt exp2   #大于
+        exp1 -ge exp2   #大于等于
+        exp1 -lt exp2   #小于
+        exp1 -le exp2   #小于等于
+        ! exp           #真假判断
+
+                文件条件测试
+        -d file         #是否目录
+        -e file         #是否存在(不可移植)
+        -f file         #是否普通文件（或存在）
+        -g file         #set-group-id位是否被设置
+        -r file         #是否可读
+        -s file         #大小不为0
+        -u file         #set-user-id位
+        -w file         #可写
+        -x file         #可执行
+  
+  5、控制结构：if、for、while、until、case 
+    if: if condition
+        then
+                statements
+        [elif
+                statements]
+        else
+                statements
+        fi
+
+   for: for variable in values
+        do
+                statements
+        done
+
+ while: while condition do
+                statements
+        done
+
+ until: until condition
+        do
+                statements
+        done
+
+  case: case variable in
+                pattern [ | pattern] ...) statements;;
+                pattern [ | pattern] ...) statements;;
+                ...
+        esac
+
+  6、命令列表： &&       ||
+
+  7、语句块：{ ... }
+
+  8、函数：
+        function_name()
+        {
+                statements
+                [return [ret_val]]
+        }
+
+  9、命令：break、continue、.命令、echo、eval、exec、exit
+           export、set、expr、printf、return、set、shift
+           trap、unset
+        
+        break [n]：跳出n层循环
+        continue [n]：同break
+        . cmd：在当前shell执行命令
+        echo [-ne] var：-n取消换行，-e使转义字符生效
+        eval var2='$'$var1：对参数求值，使var2的内容为var1的内容
+        exec cmd：将当前shell替换为cmd这个程序
+        exec fd< file：打开文件描述符fd并使之从file中读取数据
+        exit n：是脚本程序以退出码n结束运行
+        export var：将var导出到子shell中并使之在子shell中有效
+        set -a：导出之后声明的所有变量
+        expr exp：对exp表示的表达式进行求值
+        printf format ...：格式化输出
+        return [n]：返回n或者返回最后一条语句的退出码
+        set var：将var设置为shell的参数列表
+        shift：将参数变量左移一个位置
+        trap command signal：接收到signal信号后执行command命令
+        unset name：从环境中删除name指定的变量或者函数
+
+  10、find命令
+        语法格式：find [path] [options] [tests] [actions]
+        解释：在path指定的路径中根据options对文件按照tests条件进行测试，对满足条件的文件执行actions指定的动作
+
+                options
+        -depth          #在在查看目录本身之前先搜索目录内容
+        -follow         #跟随符号链接
+        -maxdepths N    #最多搜索N层目录
+        -mount(或-xdev) #不搜索其他文件系统中的目录
+
+                tests
+        -atime N        #文件在N天之前被最后访问过
+        -mtime N        #文件在N天之前被最后修改过
+        -name pattern   #文件名匹配提供的模式pattern，pattern必须加括号
+        -newer othfile  #文件比othfile文件要新
+        -type c         #文件类型为c
+        -user username  #文件的拥有者是username指定的用户
+
+                组合操作符
+        !       -not    #测试取反
+        -a      -and    #都为真才为真
+        -o      -or     #其一为真才为真
+
+                actions
+        -exec command   #执行命令
+        -ok command     #类似-exec，但是会在处理之前进行确认，而且必须使用\;字符对来结束
+        -print          #打印文件名
+        -ls             #对当前文件使用ls-dils
+
+  11、grep命令
