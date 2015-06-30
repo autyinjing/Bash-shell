@@ -21,7 +21,7 @@ set -o nounset                              # Treat unset variables as an error
 
 function printit() 
 {
-        echo "Your choice is $1"
+        echo "$0: Your choice is $1"
 }
 
 echo "..."
