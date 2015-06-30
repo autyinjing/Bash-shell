@@ -107,10 +107,20 @@ case $opt in
                 query $1
                 ;;
         "-a")
-                add_to_lib $2 $3
+                if [ "$#" -eq "3" ]; then
+                        add_to_lib $2 $3
+                else
+                        echo "正确格式：explain -a word wordinfo"
+                        exit 3
+                fi
                 ;;
         "-f")
-                add_from_file $2
+                if [ -f "$2" ]; then
+                        add_from_file $2
+                else
+                        echo "不存在的文件 $2"
+                        exit 4
+                fi
                 ;;
         "-c")
                 print_count
@@ -123,7 +133,7 @@ case $opt in
                 ;;
         *)
                 echo "未知的选项，输入 explain --help 查看帮助信息"
-                exit 1
+                exit 2
 esac
 
 exit 0
